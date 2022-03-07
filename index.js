@@ -3,7 +3,7 @@ const app = express();
 const inquirer = require('inquirer');
 
 
-const promptUser = () => {
+const promptManager = () => {
   console.log(`
 ===============================================================================
 Welcome to Team Profile Generator! Follow the steps below to create your page!
@@ -56,8 +56,8 @@ Welcome to Team Profile Generator! Follow the steps below to create your page!
       type: 'number',
       name: 'office-number',
       message: `Manager's Office Number: `,
-      validate: nameInput => {
-        if (nameInput) {
+      validate: numberInput => {
+        if (numberInput) {
           return true;
         } 
         else {
@@ -69,4 +69,28 @@ Welcome to Team Profile Generator! Follow the steps below to create your page!
     ])
   }
 
-  promptUser();
+const promptEmployee = () => {
+  console.log(`
+  =====================================================
+  Now let's get some information on other team members
+  =====================================================
+`);
+  return inquirer.prompt([
+    {
+      type: 'list',
+      name: 'employeeType',
+      message: 'Do you want to include an Employee, Intern, or you are finished building the team?',
+      choices: ['Employee', 'Intern', 'The team is complete. Generate Page']
+    },
+    {
+      type: 'confirm',
+      name: 'confirm-completion',
+      message: 'Are you sure all team members have been added?',
+      default: false,
+      when: (answers) => answers.employeeType === 'The team is complete. Generate Page'
+    }
+  ])
+}
+
+  promptManager()
+    .then(promptEmployee);
