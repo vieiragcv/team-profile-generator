@@ -10,6 +10,7 @@ Welcome to Team Profile Generator! Follow the steps below to create your page!
 ===============================================================================
 `);
   return inquirer.prompt([
+
     {
       type: 'input',
       name: 'manager-name',
@@ -24,6 +25,7 @@ Welcome to Team Profile Generator! Follow the steps below to create your page!
         }
       }
     },
+
     {
       type: 'input',
       name: 'employee-id',
@@ -38,6 +40,7 @@ Welcome to Team Profile Generator! Follow the steps below to create your page!
         }
       }
     },
+
     {
       type: 'input',
       name: 'email',
@@ -52,6 +55,7 @@ Welcome to Team Profile Generator! Follow the steps below to create your page!
         }
       }
     },
+    
     {
       type: 'number',
       name: 'office-number',
