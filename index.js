@@ -84,7 +84,7 @@ const promptEmployee = () => {
       type: 'list',
       name: 'employeeType',
       message: 'Do you want to include an Employee, Intern, or you are finished building the team?',
-      choices: ['Employee', 'Intern', 'The team is complete. Generate Page']
+      choices: ['Engineer', 'Employee', 'Intern', 'The team is complete. Generate Page']
     },
     {
       type: 'confirm',
